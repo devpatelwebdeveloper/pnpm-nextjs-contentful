@@ -8,7 +8,7 @@ importers:
 
   .: {}
 
-  packages/frontend:
+  packages/website:
     dependencies:
       '@contentful/rich-text-react-renderer':
         specifier: ^15.17.1
