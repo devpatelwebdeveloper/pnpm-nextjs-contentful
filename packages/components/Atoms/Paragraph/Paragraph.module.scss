@@ -1,0 +1,24 @@
+@import "../../Styles/styles.scss";
+
+.body{
+
+  font-weight: $font-weight-regular;
+}
+.color-black{
+  color:$color-black;
+}
+.color-red{
+  color:$color-red;
+  
+}
+.body-main{
+  font-size: $body-main;
+  line-height: $line-height-body-main;
+  
+}
+
+.body-large{
+  font-size: $body-large;
+  line-height: $line-height-body-large;
+
+}

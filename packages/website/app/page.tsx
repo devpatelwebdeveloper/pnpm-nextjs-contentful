@@ -7,15 +7,17 @@ import Avatar from "./avatar";
 import MoreStories from "./more-stories";
 
 import { getAllPosts } from "@/lib/api";
-import { CMS_NAME, CMS_URL } from "@/lib/constants";
-import {Paragraph} from "@/lib/components"
+import { DEVELOPER_NAME, DEVELOPER_PREFERRED_NAME ,DEVELOPER_PICTURE} from "@/lib/constants";
+import {Paragraph,AboutMe} from "@/lib/components"
 
 function Intro() {
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-       Portfolio
-      </h1>
+    <section>
+      <AboutMe
+      heading={`I am ${DEVELOPER_NAME} (${DEVELOPER_PREFERRED_NAME}).`}
+      description={`Certified professional with excellent experience related to frontend development. Proficiently working with HTML5, SAAS, CSS3, JavaScript, React, NEXTJs, Gatsby, GraphQL, PHP, WordPress, MySQL Server. Ability to quickly learn new applications, systems, and technical concepts. Expertise with Technologies and/or Frameworks like Vue.js, Docker, Wordpress, Storyblok, Twitter Bootstrap, WebPack, Gulp, Composer, SASS, REST services. Extensive experience in building JavaScript applications, designing responsive newsletters for promotion purposes and email blasting using HTML5. Planning, organizing and developing web applications and databases. Experience in code testing, reviewing and unit testing. Particular attention to details, security procedures and practices, responsible and self-organizing. Working within a team and independently.`}
+      imgSource={DEVELOPER_PICTURE}
+      />
       
     </section>
   );
@@ -70,7 +72,7 @@ export default async function Page() {
   return (
     <div className="container mx-auto px-5">
       <Intro />
-      <Paragraph/>
+      
     </div>
   );
 }

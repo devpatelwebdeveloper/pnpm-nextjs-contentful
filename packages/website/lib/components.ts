@@ -1,5 +1,7 @@
-import {Paragraph} from "@pnpm-nextjs-contentful/components"
+import {Paragraph,AboutMe} from "@pnpm-nextjs-contentful/components"
+
 
 export {
-  Paragraph
+  Paragraph,
+  AboutMe
 }

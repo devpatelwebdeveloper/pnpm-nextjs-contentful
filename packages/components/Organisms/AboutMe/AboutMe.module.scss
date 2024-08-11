@@ -1,0 +1,19 @@
+@import "../../Styles/styles.scss";
+
+
+.about-me-container{
+display:flex;
+flex-direction: row;
+@include breakpoint(mobile){
+  flex-direction: column;
+}
+}
+
+.about-me-description,.about-me-image{
+  width:50%;
+  padding:0 16px;
+  @include breakpoint(mobile){
+    width: 100%;
+  }
+}
+
