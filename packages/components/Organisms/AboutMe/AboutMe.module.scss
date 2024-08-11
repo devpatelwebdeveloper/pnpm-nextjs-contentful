@@ -2,8 +2,10 @@
 
 
 .about-me-container{
+margin:20px;
 display:flex;
 flex-direction: row;
+align-items: center;
 @include breakpoint(mobile){
   flex-direction: column;
 }

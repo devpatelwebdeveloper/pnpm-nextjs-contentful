@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./AboutMe.module.scss"
-import {Paragraph,Img} from "../../Atoms"
+import {Paragraph,Img,Heading} from "../../Atoms"
 import { classNames } from '../../Utils'
 
 
@@ -17,7 +17,11 @@ function AboutMe({heading,description,imgSource}:AboutMeProps) {
   return (
     <div className={aboutMeClasses}>
     <div className={aboutMeDescriptionClasses}>
-      <h1>{heading}</h1>
+      <Heading
+      size='h3'
+      title={heading}
+      color='black'
+      />
       <Paragraph size='main' color='black'>{description}</Paragraph>
     </div>
     <div className={aboutMeImageClasses}>

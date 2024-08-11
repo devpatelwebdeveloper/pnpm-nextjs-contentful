@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from "./Paragraph.module.scss";
+import styles from "./Heading.module.scss";
 import {classNames} from "../../Utils";
 
 interface HeadingProps {
