@@ -18,7 +18,7 @@ function AboutMe({heading,description,imgSource}:AboutMeProps) {
     <div className={aboutMeClasses}>
     <div className={aboutMeDescriptionClasses}>
       <Heading
-      size='h3'
+      size='h2'
       title={heading}
       color='black'
       />
