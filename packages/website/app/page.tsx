@@ -8,7 +8,7 @@ import MoreStories from "./more-stories";
 
 import { getAllPosts } from "@/lib/api";
 import { DEVELOPER_NAME, DEVELOPER_PREFERRED_NAME ,DEVELOPER_PICTURE} from "@/lib/constants";
-import {Paragraph,AboutMe} from "@/lib/components"
+import {Paragraph,AboutMe,Orbit} from "@/lib/components"
 
 function Intro() {
   return (
@@ -72,6 +72,7 @@ export default async function Page() {
   return (
     <>
       <Intro />
+      <Orbit/>
       </>
     
   );

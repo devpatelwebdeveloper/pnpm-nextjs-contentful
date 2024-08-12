@@ -1,0 +1,190 @@
+// Define positions and colors for each item
+$items: (
+  (15rem, 0rem, #00aeef, #00aeef),
+  (10rem, 10rem, #ff5733, #ff5733),
+  (0, 15rem, #33ff57, #33ff57),
+  (-10rem, 10rem, #5733ff, #5733ff),
+  (-15rem, 0rem, #f33f77, #f33f77),
+  (-10rem, -10rem, #f0f, #f0f),
+  (0, -15rem, #0ff, #0ff),
+  (10rem, -10rem, #ff0, #ff0)
+);
+
+.orbitDiv{
+  display: grid;
+  min-height: 100%;
+  place-content: center;
+  overflow: hidden;
+}
+
+.orbit {
+  --size: 12rem;
+  --speed: 120s;
+  .center-image {
+    width: var(--size);
+    position: relative;
+    z-index: 10;
+
+    img {
+      position: absolute;
+      transition: opacity 500ms;
+
+      &:not(:first-child):hover {
+        opacity: 0;
+      }
+    }
+  }
+
+  ul {
+    display: grid;
+    place-items: center;
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    list-style: none;
+    --icon-bg: var(--green-light);
+    --text-bg: var(--green-dark);
+    transform-origin: center;
+    animation: orbit var(--speed) linear infinite;
+    &:hover {
+      animation-play-state: paused;
+      --orbit-play-state: paused;
+    }
+  }
+
+  li {
+    --icon-bg: pink;
+    --text-bg: blue;
+
+    position: absolute;
+    width: 8rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    font-weight: 500;
+    color: var(--white-light);
+    text-align: center;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+
+    &:hover {
+      --throb-play-state: paused;
+    }
+
+    @for $i from 0 through 7 {
+      &:nth-child(#{$i + 1}) {
+        --throb-delay: #{500ms * $i};
+      }
+    }
+    & > * {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      border-radius: inherit;
+
+      position: absolute;
+      animation: orbit var(--speed) linear reverse infinite,
+        throb 1s var(--throb-delay) ease-in-out infinite alternate;
+      animation-play-state: var(--orbit-play-state, running),
+        var(--throb-play-state, running);
+    }
+
+    > div {
+      background-color: var(--icon-bg);
+    }
+
+    > p {
+      background: var(--text-bg);
+      transition: opacity 500ms;
+      opacity: 0;
+    }
+
+    &:hover > p {
+      opacity: 1;
+    }
+  }
+ 
+
+  // Loop through the numbers 1 through 8
+@for $i from 1 through length($items) {
+
+  $item: nth($items, $i);
+  $position: (nth($item, 1), nth($item, 2));
+  $icon-bg: nth($item, 3);
+  $text-bg: nth($item, 4);
+  
+
+  li:nth-child(#{$i}) {
+    $item: nth($items, $i);
+    --icon-bg: #00aeef;
+    --text-bg: #00aeef;
+    transform: translate(nth($position, 1), nth($position, 2));
+  }
+}
+
+
+  // li:nth-child(1) {
+  //   --icon-bg: #00aeef;
+  //   --text-bg: #00aeef;
+  //   transform: translate(15rem, 0rem);
+  // }
+
+  // li:nth-child(2) {
+  //   --icon-bg: #00aeef;
+  //   --text-bg: #00aeef;
+  //   transform: translate(10rem, 10rem);
+  // }
+
+  // li:nth-child(3) {
+  //   --icon-bg: #00aeef;
+  //   --text-bg: #00aeef;
+  //   transform: translate(0, 15rem);
+  // }
+  // li:nth-child(4) {
+  //   --icon-bg: #00aeef;
+  //   --text-bg: #00aeef;
+  //   transform: translate(-10rem, 10rem);
+  // }
+
+  // li:nth-child(5) {
+  //   --icon-bg: #00aeef;
+  //   --text-bg: #00aeef;
+  //   transform: translate(-15rem, 0rem);
+  // }
+
+  // li:nth-child(6) {
+  //   --icon-bg: #00aeef;
+  //   --text-bg: #00aeef;
+  //   transform: translate(-10rem, -10rem);
+  // }
+
+  // li:nth-child(7) {
+  //   --icon-bg: #00aeef;
+  //   --text-bg: #00aeef;
+  //   transform: translate(0, -15rem);
+  // }
+  // li:nth-child(8) {
+  //   --icon-bg: #00aeef;
+  //   --text-bg: #00aeef;
+  //   transform: translate(10rem, -10rem);
+  // }
+}
+
+@keyframes orbit {
+  100% {
+    rotate: 1turn;
+  }
+}
+
+@keyframes hold-position {
+  100% {
+    rotate: -1turn;
+  }
+}
+
+@keyframes throb {
+  100% {
+    scale: 1.05;
+  }
+}
